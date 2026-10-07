@@ -2,6 +2,9 @@
 
 Official site of the AAIF Logroño chapter, live at https://agenticrioja.com. Built with Astro + Tailwind CSS v4 and deployed to GitHub Pages.
 
+## Working with AI agents
+AI coding agents (any tool) and contributors should read [AGENTS.md](AGENTS.md) for project rules. Task briefs are in [agents/](agents/).
+
 ## Develop
 Requires Node 24 (see `.nvmrc`) and pnpm (pinned via `packageManager`; run `corepack enable`).
 ```sh
