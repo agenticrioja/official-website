@@ -1,0 +1,23 @@
+---
+import { LUMA_URL } from '../site';
+const items = [
+  { title: 'Come to a meetup', text: "You don't need to be an expert. Curiosity is enough." },
+  { title: 'Give a talk', text: "Built something with agents, big or small? First-time speakers are very welcome." },
+  { title: 'Lend us a space', text: 'Have a venue in Logroño, or want to support the community? Let’s talk.' },
+];
+---
+<section id="join" class="bg-vine text-white">
+  <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+    <h2 class="font-display text-3xl font-bold sm:text-4xl">Come along</h2>
+    <p class="mt-4 max-w-2xl text-lg text-white">The community is whatever we make it. There's room for everyone.</p>
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
+      {items.map((i) => (
+        <article class="rounded-3xl bg-black/15 p-6 ring-1 ring-white/15">
+          <h3 class="text-xl font-semibold">{i.title}</h3>
+          <p class="mt-2 text-white">{i.text}</p>
+        </article>
+      ))}
+    </div>
+    <a href={LUMA_URL} class="mt-8 inline-block rounded-full bg-cream px-6 py-3 font-semibold text-ink hover:bg-white">Join us on Luma</a>
+  </div>
+</section>

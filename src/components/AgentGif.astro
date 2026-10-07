@@ -1,0 +1,9 @@
+---
+import type { ImageMetadata } from 'astro';
+interface Props { gif: ImageMetadata; still: ImageMetadata; alt?: string; size: number; class?: string; eager?: boolean }
+const { gif, still, alt = '', size, class: className, eager = false } = Astro.props;
+---
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset={still.src} />
+  <img src={gif.src} alt={alt} width={size} height={size} class={className} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} />
+</picture>

@@ -1,0 +1,83 @@
+---
+// Hand-drawn Logroño: La Redonda's twin towers, the Puente de Piedra over the Ebro,
+// vineyards in the foreground, and our agent enjoying the view.
+interface Props { class?: string }
+const { class: className } = Astro.props;
+---
+<svg viewBox="0 0 600 440" class={className} role="img" aria-labelledby="scene-title">
+  <title id="scene-title">Illustration of Logroño: the towers of La Redonda, the Puente de Piedra over the Ebro and Rioja vineyards, with a small robot</title>
+  <rect width="600" height="440" fill="#fbe7cf" />
+  <circle cx="478" cy="92" r="44" fill="#e3a33b" />
+  <path d="M0,214 C90,170 170,196 250,182 C340,166 420,150 600,190 V300 H0 Z" fill="#efcfae" />
+
+  <g fill="#8c1c3f">
+    <!-- town -->
+    <rect x="60" y="222" width="38" height="78" opacity=".55" />
+    <rect x="100" y="238" width="30" height="62" opacity=".55" />
+    <rect x="132" y="214" width="44" height="86" opacity=".55" />
+    <rect x="178" y="232" width="34" height="68" opacity=".55" />
+    <rect x="352" y="226" width="40" height="74" opacity=".55" />
+    <rect x="394" y="240" width="46" height="60" opacity=".55" />
+    <rect x="442" y="220" width="36" height="80" opacity=".55" />
+    <rect x="480" y="236" width="44" height="64" opacity=".55" />
+    <!-- La Redonda: nave + twin baroque towers -->
+    <rect x="238" y="214" width="100" height="86" />
+    <path d="M262,214 L288,194 L314,214 Z" />
+    <g id="tower">
+      <rect x="216" y="150" width="34" height="150" />
+      <rect x="220" y="124" width="26" height="28" />
+      <rect x="224" y="104" width="18" height="22" />
+      <ellipse cx="233" cy="104" rx="11" ry="9" />
+      <rect x="231" y="80" width="4" height="18" />
+      <circle cx="233" cy="78" r="3.5" />
+    </g>
+    <use href="#tower" x="110" />
+  </g>
+  <g fill="#fbe7cf">
+    <rect x="228" y="132" width="10" height="14" rx="5" />
+    <rect x="338" y="132" width="10" height="14" rx="5" />
+    <rect x="281" y="232" width="14" height="22" rx="7" />
+  </g>
+
+  <!-- Ebro -->
+  <rect y="282" width="600" height="60" fill="#5f97bf" />
+  <g stroke="#a9cbe2" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M40,330 h40 M150,334 h56 M300,330 h44 M440,334 h60" />
+  </g>
+  <!-- Puente de Piedra -->
+  <path d="M20,262 H580 V324 H564.0 V300 A30.9,26.2 0 0 0 502.3,300 V324 H486.3 V300 A30.9,26.2 0 0 0 424.6,300 V324 H408.6 V300 A30.9,26.2 0 0 0 346.9,300 V324 H330.9 V300 A30.9,26.2 0 0 0 269.1,300 V324 H253.1 V300 A30.9,26.2 0 0 0 191.4,300 V324 H175.4 V300 A30.9,26.2 0 0 0 113.7,300 V324 H97.7 V300 A30.9,26.2 0 0 0 36.0,300 V324 H20 Z" fill="#c4865a" />
+  <rect x="20" y="256" width="560" height="7" fill="#a86c44" />
+
+  <!-- vineyards -->
+  <path d="M0,370 C120,330 260,346 340,356 C450,368 520,344 600,352 V440 H0 Z" fill="#567f3f" />
+  <path d="M-10,400 C150,360 330,380 610,392 V440 H-10 Z" fill="#3f6b35" />
+  <g stroke="#2c4e25" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round" fill="none">
+        <path d="M-10,402 Q300,346.0 610,396" />
+    <path d="M-4,411 Q300,356.5 604,405" />
+    <path d="M2,420 Q300,367.0 598,414" />
+    <path d="M8,429 Q300,377.5 592,423" />
+    <path d="M14,438 Q300,388.0 586,432" />
+    <path d="M20,447 Q300,398.5 580,441" />
+    <path d="M26,456 Q300,409.0 574,450" />
+    <path d="M32,465 Q300,419.5 568,459" />
+    <path d="M38,474 Q300,430.0 562,468" />
+  </g>
+
+  <!-- our agent, with a glass of Rioja -->
+  <g transform="translate(470 306)">
+    <rect x="22" y="0" width="4" height="12" fill="#0a0a0a" />
+    <circle cx="24" cy="0" r="5" fill="#4d7cfe" />
+    <rect x="0" y="12" width="48" height="42" rx="14" fill="#4d7cfe" />
+    <rect x="8" y="22" width="32" height="16" rx="8" fill="#0a0a0a" />
+    <circle cx="18" cy="30" r="4" fill="#fff" />
+    <circle cx="30" cy="30" r="4" fill="#fff" />
+    <rect x="16" y="44" width="16" height="4" rx="2" fill="#3a5cc4" />
+    <rect x="12" y="54" width="5" height="16" rx="2" fill="#0a0a0a" />
+    <rect x="31" y="54" width="5" height="16" rx="2" fill="#0a0a0a" />
+    <rect x="48" y="28" width="12" height="5" rx="2.5" fill="#4d7cfe" />
+    <path d="M58,14 h12 q0,14 -6,14 q-6,0 -6,-14 Z" fill="#fff" stroke="#0a0a0a" stroke-width="1.5" />
+    <path d="M59,20 h10 q-1,7 -5,7 q-4,0 -5,-7 Z" fill="#8c1c3f" />
+    <rect x="63" y="28" width="2" height="8" fill="#0a0a0a" />
+    <rect x="59" y="36" width="10" height="2" rx="1" fill="#0a0a0a" />
+  </g>
+</svg>

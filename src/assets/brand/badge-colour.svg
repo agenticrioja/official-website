@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000"><circle cx="500" cy="500" r="470.0" fill="#14141C" stroke="#E9852B" stroke-width="24.0"/>
+<circle cx="500" cy="500" r="432.0" fill="none" stroke="#A99BCB" stroke-width="4.0"/>
+<circle cx="500" cy="500" r="300.0" fill="none" stroke="#A99BCB" stroke-width="2.0" opacity="0.5"/>
+<path id="tp500500" d="M 140.0,500 A 360.0,360.0 0 0,1 860.0,500" fill="none"/>
+<path id="bp500500" d="M 860.0,500 A 360.0,360.0 0 0,1 140.0,500" fill="none"/>
+<text font-family="Liberation Sans, DejaVu Sans, sans-serif" font-weight="bold" font-size="48.0" letter-spacing="5.0" fill="#E9852B"><textPath href="#tp500500" startOffset="50%" text-anchor="middle">LOGRONO</textPath></text>
+<text font-family="Liberation Sans, DejaVu Sans, sans-serif" font-weight="bold" font-size="37.0" letter-spacing="4.0" fill="#A99BCB"><textPath href="#bp500500" startOffset="50%" text-anchor="middle">AGENTIC AI FOUNDATION</textPath></text>
+<circle cx="140.0" cy="500" r="11.0" fill="#E9852B"/>
+<circle cx="860.0" cy="500" r="11.0" fill="#E9852B"/>
+<text x="500" y="470.0" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-weight="bold" font-size="150.0" text-anchor="middle" fill="#F7F5EF">AAIF</text>
+<text x="500" y="540.0" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-weight="bold" font-size="36.0" letter-spacing="6.0" text-anchor="middle" fill="#A99BCB">COMMUNITY EVENTS</text>
+<rect x="296.0" y="572.0" width="408.0" height="88.0" rx="44.0" fill="#E9852B"/>
+<text x="500" y="632.0" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-weight="bold" font-size="46.0" letter-spacing="6.0" text-anchor="middle" fill="#14141C">ORGANIZER</text></svg>

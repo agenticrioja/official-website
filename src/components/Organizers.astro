@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import agent from '../assets/brand/badge-agent.svg';
+import colour from '../assets/brand/badge-colour.svg';
+const badges = { agent, colour };
+const people = (await getCollection('organizers')).sort((a, b) => a.data.order - b.data.order);
+---
+<section id="organizers">
+  <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+    <h2 class="font-display text-3xl font-bold sm:text-4xl">Who's behind this</h2>
+    <p class="mt-4 max-w-2xl text-lg text-ink/80">Two locals who love building things and bringing people together. Come and say hi.</p>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {people.map((p) => (
+        <article class="flex items-center gap-5 rounded-3xl bg-white p-5 ring-1 ring-ink/5">
+          {p.data.photo ? (
+            <Image src={p.data.photo} alt={p.data.name} width={224} height={224} loading="lazy" class="h-28 w-28 shrink-0 rounded-full object-cover object-top" />
+          ) : (
+            <img src={badges[p.data.badge].src} alt={`${p.data.name} organizer badge`} width="112" height="112" loading="lazy" class="h-28 w-28 shrink-0 rounded-full" />
+          )}
+          <div>
+            <h3 class="text-xl font-semibold">{p.data.name}</h3>
+            <p class="text-sm text-ink/70">{p.data.role}{p.data.company && ` · ${p.data.company}`}</p>
+            {p.data.bio && <p class="mt-2 text-sm text-ink/80">{p.data.bio}</p>}
+            <p class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm font-semibold text-wine">
+              {p.data.linkedin && <a href={p.data.linkedin} class="underline">LinkedIn</a>}
+              {p.data.github && <a href={p.data.github} class="underline">GitHub</a>}
+              {p.data.website && <a href={p.data.website} class="underline">Website</a>}
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

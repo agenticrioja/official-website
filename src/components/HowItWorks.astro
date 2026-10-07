@@ -1,0 +1,19 @@
+---
+const steps = [
+  { title: 'Talks & live demos', text: 'Real projects and real code, including what broke along the way. No sales pitches.' },
+  { title: 'Open conversation', text: 'Questions, ideas and lessons learned. Everyone can join in, beginners included.' },
+  { title: 'Pinchos & networking', text: "This is Logroño, after all. The conversation usually carries on over a few pinchos." },
+];
+---
+<section id="how" class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+  <h2 class="font-display text-3xl font-bold sm:text-4xl">What a meetup looks like</h2>
+  <ol class="mt-10 grid gap-5 md:grid-cols-3">
+    {steps.map((s, i) => (
+      <li class="rounded-3xl border-2 border-dashed border-wine/25 p-6">
+        <span class="font-display text-4xl font-bold text-wine">{i + 1}</span>
+        <h3 class="mt-2 text-xl font-semibold">{s.title}</h3>
+        <p class="mt-2 text-ink/80">{s.text}</p>
+      </li>
+    ))}
+  </ol>
+</section>

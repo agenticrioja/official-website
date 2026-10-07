@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/instrument-sans';
+@import '@fontsource-variable/fraunces';
+
+@theme {
+  --font-sans: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
+
+  /* La Rioja palette. Text-safe pairs (WCAG AA): wine/cream 7.9, cream/wine-deep 14.5, vine/cream 5.6. */
+  --color-ink: #1f1a17;
+  --color-cream: #f7f1e8;
+  --color-sand: #fbe7cf;
+  --color-wine: #8c1c3f;
+  --color-wine-deep: #3d0f22;
+  --color-vine: #3f6b35;
+  --color-terra: #b5522b; /* decorative, or white text on it */
+  --color-ochre: #e3a33b;
+  --color-river: #5f97bf;
+  --color-agent: #4d7cfe; /* the robot's blue, decorative only */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-ochre);
+  outline-offset: 3px;
+}
+
+summary::-webkit-details-marker { display: none; }
