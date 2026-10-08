@@ -13,13 +13,13 @@ import { AAIF_URL, CLOUD_NATIVE_RIOJA_URL, CNCF_URL, LF_COC_URL, LF_URL } from '
       <p class="mt-4 text-lg text-ink/80">
         Agentic Rioja is where we find each other, learn together and build things here. It's a small, friendly and vendor-neutral space where people come to share real work, not slides full of buzzwords.
       </p>
-      <div class="mt-8 flex flex-col gap-4 rounded-3xl bg-white/70 p-6 ring-1 ring-ink/5 sm:flex-row sm:items-center">
-        <a href={CLOUD_NATIVE_RIOJA_URL} aria-label="Cloud Native Rioja" class="shrink-0">
-          <img src={cloudNativeRioja.src} alt="" width="196" height="40" class="h-10 w-auto" loading="lazy" />
+      <div class="community-split">
+        <a href={CLOUD_NATIVE_RIOJA_URL} aria-label="Cloud Native Rioja" class="community-split__logo">
+          <img src={cloudNativeRioja.src} alt="" width="196" height="40" loading="lazy" />
         </a>
-        <p class="text-ink/80">
-          <span class="font-semibold text-ink">Our sibling community.</span> Into Kubernetes and cloud native? Cloud Native Rioja is the community group for Kubernetes, containers and DevOps in La Rioja, part of the <a href={CNCF_URL} class="underline">Cloud Native Computing Foundation</a>, which, like the AAIF, belongs to the Linux Foundation.{" "}
-          <a href={CLOUD_NATIVE_RIOJA_URL} class="font-semibold whitespace-nowrap text-wine underline">cloudnativerioja.com</a>
+        <p class="community-split__copy">
+          <span class="community-split__title">Our sibling community.</span> Into Kubernetes and cloud native? Cloud Native Rioja is the community group for Kubernetes, containers and DevOps in La Rioja, part of the <a href={CNCF_URL}>Cloud Native Computing Foundation</a>, which, like the AAIF, belongs to the Linux Foundation.{" "}
+          <a href={CLOUD_NATIVE_RIOJA_URL}>cloudnativerioja.com</a>
         </p>
       </div>
     </div>
@@ -37,3 +37,62 @@ import { AAIF_URL, CLOUD_NATIVE_RIOJA_URL, CNCF_URL, LF_COC_URL, LF_URL } from '
     </div>
   </div>
 </section>
+
+<style>
+  .community-split {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 1.75rem;
+    border: 1px solid rgb(31 26 23 / 5%);
+    border-radius: 1.5rem;
+    background: rgb(255 255 255 / 72%);
+  }
+
+  .community-split__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .community-split__logo img {
+    width: 196px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .community-split__copy {
+    margin: 0;
+    color: rgb(31 26 23 / 82%);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .community-split__title {
+    display: block;
+    margin-bottom: .375rem;
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+
+  .community-split__copy a {
+    text-underline-offset: 3px;
+  }
+
+  .community-split__copy a:last-child {
+    color: var(--color-wine);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  @media (min-width: 68.75rem) {
+    .community-split {
+      grid-template-columns: 196px minmax(0, 1fr);
+      align-items: center;
+    }
+
+    .community-split__logo {
+      padding-right: 1.5rem;
+      border-right: 1px solid rgb(31 26 23 / 12%);
+    }
+  }
+</style>
