@@ -4,10 +4,10 @@
 interface Props { class?: string }
 const { class: className } = Astro.props;
 ---
-<svg viewBox="0 0 600 440" class={className} role="img" aria-labelledby="scene-title">
+<svg data-logrono-scene viewBox="0 0 600 440" class={className} role="img" aria-labelledby="scene-title">
   <title id="scene-title">Illustration of Logroño: the towers of La Redonda, the Puente de Piedra over the Ebro and Rioja vineyards, with a small robot</title>
   <rect width="600" height="440" fill="#fbe7cf" />
-  <circle cx="478" cy="92" r="44" fill="#e3a33b" />
+  <circle class="scene-sun" cx="478" cy="92" r="44" fill="#e3a33b" />
   <path d="M0,214 C90,170 170,196 250,182 C340,166 420,150 600,190 V300 H0 Z" fill="#efcfae" />
 
   <g fill="#8c1c3f">
@@ -42,7 +42,10 @@ const { class: className } = Astro.props;
   <!-- Ebro -->
   <rect y="282" width="600" height="60" fill="#5f97bf" />
   <g stroke="#a9cbe2" stroke-width="3" stroke-linecap="round" fill="none">
-    <path d="M40,330 h40 M150,334 h56 M300,330 h44 M440,334 h60" />
+    <path class="scene-ripple" d="M40,330 h40" />
+    <path class="scene-ripple" d="M150,334 h56" />
+    <path class="scene-ripple" d="M300,330 h44" />
+    <path class="scene-ripple" d="M440,334 h60" />
   </g>
   <!-- Puente de Piedra -->
   <path d="M20,262 H580 V324 H564.0 V300 A30.9,26.2 0 0 0 502.3,300 V324 H486.3 V300 A30.9,26.2 0 0 0 424.6,300 V324 H408.6 V300 A30.9,26.2 0 0 0 346.9,300 V324 H330.9 V300 A30.9,26.2 0 0 0 269.1,300 V324 H253.1 V300 A30.9,26.2 0 0 0 191.4,300 V324 H175.4 V300 A30.9,26.2 0 0 0 113.7,300 V324 H97.7 V300 A30.9,26.2 0 0 0 36.0,300 V324 H20 Z" fill="#c4865a" />
@@ -65,19 +68,138 @@ const { class: className } = Astro.props;
 
   <!-- our agent, with a glass of Rioja -->
   <g transform="translate(470 306)">
+    <g class="scene-robot">
     <rect x="22" y="0" width="4" height="12" fill="#0a0a0a" />
     <circle cx="24" cy="0" r="5" fill="#4d7cfe" />
     <rect x="0" y="12" width="48" height="42" rx="14" fill="#4d7cfe" />
     <rect x="8" y="22" width="32" height="16" rx="8" fill="#0a0a0a" />
-    <circle cx="18" cy="30" r="4" fill="#fff" />
-    <circle cx="30" cy="30" r="4" fill="#fff" />
+    <circle class="scene-eye" cx="18" cy="30" r="4" fill="#fff" />
+    <circle class="scene-eye" cx="30" cy="30" r="4" fill="#fff" />
     <rect x="16" y="44" width="16" height="4" rx="2" fill="#3a5cc4" />
     <rect x="12" y="54" width="5" height="16" rx="2" fill="#0a0a0a" />
     <rect x="31" y="54" width="5" height="16" rx="2" fill="#0a0a0a" />
-    <rect x="48" y="28" width="12" height="5" rx="2.5" fill="#4d7cfe" />
-    <path d="M58,14 h12 q0,14 -6,14 q-6,0 -6,-14 Z" fill="#fff" stroke="#0a0a0a" stroke-width="1.5" />
-    <path d="M59,20 h10 q-1,7 -5,7 q-4,0 -5,-7 Z" fill="#8c1c3f" />
-    <rect x="63" y="28" width="2" height="8" fill="#0a0a0a" />
-    <rect x="59" y="36" width="10" height="2" rx="1" fill="#0a0a0a" />
+    <g class="scene-toast">
+      <rect x="48" y="28" width="12" height="5" rx="2.5" fill="#4d7cfe" />
+      <path d="M58,14 h12 q0,14 -6,14 q-6,0 -6,-14 Z" fill="#fff" stroke="#0a0a0a" stroke-width="1.5" />
+      <path d="M59,20 h10 q-1,7 -5,7 q-4,0 -5,-7 Z" fill="#8c1c3f" />
+      <rect x="63" y="28" width="2" height="8" fill="#0a0a0a" />
+      <rect x="59" y="36" width="10" height="2" rx="1" fill="#0a0a0a" />
+    </g>
+    </g>
   </g>
 </svg>
+
+<style>
+  .scene-robot {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+  }
+
+  .scene-eye {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .scene-sun {
+    animation: sun-settle 650ms cubic-bezier(.16, 1, .3, 1) both;
+  }
+
+  .scene-toast {
+    transform-box: fill-box;
+    transform-origin: left center;
+    animation: rioja-toast 620ms cubic-bezier(.16, 1, .3, 1) 400ms both;
+  }
+
+  @keyframes sun-settle {
+    from { opacity: .7; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes rioja-toast {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    48% { transform: translateY(-5px) rotate(-9deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scene-sun,
+    .scene-toast { animation: none; }
+  }
+</style>
+
+<script>
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  document.querySelectorAll<SVGSVGElement>('[data-logrono-scene]').forEach((scene) => {
+    const robot = scene.querySelector<SVGGElement>('.scene-robot');
+    const eyes = scene.querySelectorAll<SVGCircleElement>('.scene-eye');
+    const ripples = scene.querySelectorAll<SVGPathElement>('.scene-ripple');
+    if (!robot) return;
+
+    const timers = new Set<ReturnType<typeof setTimeout>>();
+    const animations = new Set<Animation>();
+    let inView = false;
+    let running = false;
+
+    const track = (animation: Animation) => {
+      animations.add(animation);
+      animation.finished.catch(() => {}).finally(() => animations.delete(animation));
+    };
+
+    const schedule = (action: () => void, minimum: number, maximum: number) => {
+      const timer = setTimeout(() => {
+        timers.delete(timer);
+        if (running) action();
+      }, minimum + Math.random() * (maximum - minimum));
+      timers.add(timer);
+    };
+
+    const blink = () => {
+      eyes.forEach((eye) => track(eye.animate([
+        { transform: 'scaleY(1)', offset: 0 },
+        { transform: 'scaleY(.08)', offset: .4 },
+        { transform: 'scaleY(.08)', offset: .55 },
+        { transform: 'scaleY(1)', offset: 1 },
+      ], { duration: 180, easing: 'ease-in-out' })));
+      schedule(blink, 3000, 7000);
+    };
+
+    const shuffle = () => {
+      const distance = (Math.random() > .5 ? 1 : -1) * (4 + Math.random() * 4);
+      track(robot.animate([
+        { transform: 'translate(0, 0) rotate(0deg)' },
+        { transform: `translate(${distance}px, -2px) rotate(${distance > 0 ? 1 : -1}deg)` },
+        { transform: 'translate(0, 0) rotate(0deg)' },
+      ], { duration: 1800, easing: 'cubic-bezier(.45, 0, .55, 1)' }));
+      schedule(shuffle, 7000, 13000);
+    };
+
+    const update = () => {
+      const shouldRun = inView && !document.hidden && !reducedMotion.matches;
+      if (shouldRun === running) return;
+      running = shouldRun;
+      if (running) {
+        ripples.forEach((ripple, index) => track(ripple.animate([
+          { transform: 'translateX(-10px)', opacity: 0 },
+          { opacity: .9, offset: .25 },
+          { opacity: .9, offset: .7 },
+          { transform: 'translateX(14px)', opacity: 0 },
+        ], { duration: 4200 + index * 450, delay: -index * 1100, iterations: Infinity, easing: 'linear' })));
+        schedule(blink, 1500, 4000);
+        schedule(shuffle, 4000, 8000);
+      } else {
+        timers.forEach(clearTimeout);
+        timers.clear();
+        animations.forEach((animation) => animation.cancel());
+        animations.clear();
+      }
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting && entry.intersectionRatio >= .1;
+      update();
+    }, { threshold: .1 });
+    observer.observe(scene);
+    document.addEventListener('visibilitychange', update);
+    reducedMotion.addEventListener('change', update);
+  });
+</script>
