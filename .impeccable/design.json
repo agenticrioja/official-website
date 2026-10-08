@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-08T12:31:12.877832+00:00",
+  "title": "Design System: Agentic Rioja",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1f1a17",
+        "tonalRamp": [
+          "oklch(15% 0.010 53.0)",
+          "oklch(27% 0.010 53.0)",
+          "oklch(39% 0.010 53.0)",
+          "oklch(51% 0.010 53.0)",
+          "oklch(63% 0.010 53.0)",
+          "oklch(75% 0.010 53.0)",
+          "oklch(85% 0.010 53.0)",
+          "oklch(95% 0.010 53.0)"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Cream",
+        "canonical": "#f7f1e8",
+        "tonalRamp": [
+          "oklch(15% 0.014 78.3)",
+          "oklch(27% 0.014 78.3)",
+          "oklch(39% 0.014 78.3)",
+          "oklch(51% 0.014 78.3)",
+          "oklch(63% 0.014 78.3)",
+          "oklch(75% 0.014 78.3)",
+          "oklch(85% 0.014 78.3)",
+          "oklch(95% 0.014 78.3)"
+        ]
+      },
+      "sand": {
+        "role": "neutral",
+        "displayName": "Sand",
+        "canonical": "#fbe7cf",
+        "tonalRamp": [
+          "oklch(15% 0.039 72.4)",
+          "oklch(27% 0.039 72.4)",
+          "oklch(39% 0.039 72.4)",
+          "oklch(51% 0.039 72.4)",
+          "oklch(63% 0.039 72.4)",
+          "oklch(75% 0.039 72.4)",
+          "oklch(85% 0.039 72.4)",
+          "oklch(95% 0.039 72.4)"
+        ]
+      },
+      "wine": {
+        "role": "primary",
+        "displayName": "Wine",
+        "canonical": "#8c1c3f",
+        "tonalRamp": [
+          "oklch(15% 0.148 8.1)",
+          "oklch(27% 0.148 8.1)",
+          "oklch(39% 0.148 8.1)",
+          "oklch(51% 0.148 8.1)",
+          "oklch(63% 0.148 8.1)",
+          "oklch(75% 0.148 8.1)",
+          "oklch(85% 0.148 8.1)",
+          "oklch(95% 0.148 8.1)"
+        ]
+      },
+      "wine-deep": {
+        "role": "primary",
+        "displayName": "Deep Wine",
+        "canonical": "#3d0f22",
+        "tonalRamp": [
+          "oklch(15% 0.075 358.4)",
+          "oklch(27% 0.075 358.4)",
+          "oklch(39% 0.075 358.4)",
+          "oklch(51% 0.075 358.4)",
+          "oklch(63% 0.075 358.4)",
+          "oklch(75% 0.075 358.4)",
+          "oklch(85% 0.075 358.4)",
+          "oklch(95% 0.075 358.4)"
+        ]
+      },
+      "vine": {
+        "role": "secondary",
+        "displayName": "Vine",
+        "canonical": "#3f6b35",
+        "tonalRamp": [
+          "oklch(15% 0.096 139.9)",
+          "oklch(27% 0.096 139.9)",
+          "oklch(39% 0.096 139.9)",
+          "oklch(51% 0.096 139.9)",
+          "oklch(63% 0.096 139.9)",
+          "oklch(75% 0.096 139.9)",
+          "oklch(85% 0.096 139.9)",
+          "oklch(95% 0.096 139.9)"
+        ]
+      },
+      "terra": {
+        "role": "tertiary",
+        "displayName": "Terra",
+        "canonical": "#b5522b",
+        "tonalRamp": [
+          "oklch(15% 0.139 40.9)",
+          "oklch(27% 0.139 40.9)",
+          "oklch(39% 0.139 40.9)",
+          "oklch(51% 0.139 40.9)",
+          "oklch(63% 0.139 40.9)",
+          "oklch(75% 0.139 40.9)",
+          "oklch(85% 0.139 40.9)",
+          "oklch(95% 0.139 40.9)"
+        ]
+      },
+      "ochre": {
+        "role": "secondary",
+        "displayName": "Ochre",
+        "canonical": "#e3a33b",
+        "tonalRamp": [
+          "oklch(15% 0.138 75.5)",
+          "oklch(27% 0.138 75.5)",
+          "oklch(39% 0.138 75.5)",
+          "oklch(51% 0.138 75.5)",
+          "oklch(63% 0.138 75.5)",
+          "oklch(75% 0.138 75.5)",
+          "oklch(85% 0.138 75.5)",
+          "oklch(95% 0.138 75.5)"
+        ]
+      },
+      "river": {
+        "role": "tertiary",
+        "displayName": "River",
+        "canonical": "#5f97bf",
+        "tonalRamp": [
+          "oklch(15% 0.084 240.8)",
+          "oklch(27% 0.084 240.8)",
+          "oklch(39% 0.084 240.8)",
+          "oklch(51% 0.084 240.8)",
+          "oklch(63% 0.084 240.8)",
+          "oklch(75% 0.084 240.8)",
+          "oklch(85% 0.084 240.8)",
+          "oklch(95% 0.084 240.8)"
+        ]
+      },
+      "agent": {
+        "role": "tertiary",
+        "displayName": "Agent Blue",
+        "canonical": "#4d7cfe",
+        "tonalRamp": [
+          "oklch(15% 0.200 265.8)",
+          "oklch(27% 0.200 265.8)",
+          "oklch(39% 0.200 265.8)",
+          "oklch(51% 0.200 265.8)",
+          "oklch(63% 0.200 265.8)",
+          "oklch(75% 0.200 265.8)",
+          "oklch(85% 0.200 265.8)",
+          "oklch(95% 0.200 265.8)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation, dates, and identifiers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "ambient-hero",
+        "value": "0 20px 25px -5px rgb(140 28 63 / 0.1), 0 8px 10px -6px rgb(140 28 63 / 0.1)",
+        "purpose": "Soft depth around the hero illustration."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main invitation to join on Luma.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Join us on Luma</a>",
+      "css": ".ds-btn-primary { display:inline-block; background:var(--color-wine, #8c1c3f); color:white; padding:12px 24px; border-radius:9999px; font:600 16px/1.5 \"Instrument Sans Variable\",system-ui,sans-serif; text-decoration:none; } .ds-btn-primary:hover { background:var(--color-wine-deep, #3d0f22); } .ds-btn-primary:focus-visible { outline:3px solid var(--color-ochre, #e3a33b); outline-offset:3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "description": "Secondary route to on-page content.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">See upcoming meetups</a>",
+      "css": ".ds-btn-secondary { display:inline-block; color:var(--color-ink, #1f1a17); border:1px solid rgb(31 26 23 / 0.25); padding:12px 24px; border-radius:9999px; font:600 16px/1.5 \"Instrument Sans Variable\",system-ui,sans-serif; text-decoration:none; } .ds-btn-secondary:hover { background:white; } .ds-btn-secondary:focus-visible { outline:3px solid var(--color-ochre, #e3a33b); outline-offset:3px; }"
+    },
+    {
+      "name": "Topic Card",
+      "kind": "card",
+      "refersTo": "card-light",
+      "description": "A light card for one AI agents topic.",
+      "html": "<article class=\"ds-topic-card\"><span class=\"ds-topic-mark\"></span><h3>Tools & MCP</h3><p>Connecting agents to tools through open protocols.</p></article>",
+      "css": ".ds-topic-card { background:white; color:var(--color-ink, #1f1a17); border:1px solid rgb(31 26 23 / 0.05); border-radius:24px; padding:24px; font-family:\"Instrument Sans Variable\",system-ui,sans-serif; max-width:260px; } .ds-topic-card h3 { font-size:20px; margin:12px 0 8px; } .ds-topic-card p { margin:0; line-height:1.5; } .ds-topic-mark { display:block; width:40px; height:6px; border-radius:9999px; background:var(--color-agent, #4d7cfe); }"
+    },
+    {
+      "name": "Event Card",
+      "kind": "card",
+      "refersTo": "card-light",
+      "description": "Upcoming event information on the deep-wine section.",
+      "html": "<article class=\"ds-event-card\"><p class=\"ds-event-date\">Coming soon · Date TBA</p><h3>Agentic Rioja Kickoff</h3><p>Short talks, live demos and time to meet local builders.</p></article>",
+      "css": ".ds-event-card { background:white; color:var(--color-ink, #1f1a17); border-radius:24px; padding:24px; font-family:\"Instrument Sans Variable\",system-ui,sans-serif; max-width:320px; } .ds-event-card h3 { margin:8px 0 12px; font-size:20px; } .ds-event-card p { margin:0; line-height:1.5; } .ds-event-date { color:var(--color-wine, #8c1c3f); font-size:14px; font-weight:600; }"
+    },
+    {
+      "name": "Mobile Menu",
+      "kind": "nav",
+      "description": "A compact disclosure for small screens.",
+      "html": "<nav class=\"ds-mobile-menu\"><a href=\"#\">Topics</a><a href=\"#\">Meetups</a><a href=\"#\">Join</a></nav>",
+      "css": ".ds-mobile-menu { display:flex; flex-direction:column; gap:4px; width:224px; background:white; border:1px solid rgb(31 26 23 / 0.1); border-radius:16px; padding:12px; box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1); font:500 14px/1.5 \"Instrument Sans Variable\",system-ui,sans-serif; } .ds-mobile-menu a { color:var(--color-ink, #1f1a17); padding:8px 12px; border-radius:8px; text-decoration:none; } .ds-mobile-menu a:hover { background:var(--color-cream, #f7f1e8); } .ds-mobile-menu a:focus-visible { outline:3px solid var(--color-ochre, #e3a33b); outline-offset:3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Rioja Workshop",
+    "overview": "The site feels like an open local workshop: warm, practical, and collaborative. Cream and sand provide a calm base, wine and vine give it a distinct regional identity, and a friendly illustration and agent artwork bring the subject to life. The visual language welcomes newcomers while leaving room for real technical content. Sections are spacious and easy to scan. Rounded controls and cards feel warm and approachable; shadows add only subtle ambient depth.",
+    "keyCharacteristics": [
+      "Local warmth through the Rioja palette and Logroño illustration.",
+      "Clear editorial headings paired with straightforward body type.",
+      "Generous spacing, softly rounded forms, and restrained depth."
+    ],
+    "rules": [
+      {
+        "name": "The Text-Safe Pair Rule",
+        "body": "Keep body text on established high-contrast pairs; test every new pair against WCAG 2.1 AA.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Voice Rule",
+        "body": "Use Fraunces for expressive headings and Instrument Sans for practical reading and controls.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ambient Depth Rule",
+        "body": "Shadows support a real layer or visual focal point, without making every card appear lifted.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the Rioja palette, two-font pairing, and rounded form language coherent across sections.",
+      "Do retain visible AAIF, Linux Foundation, and Cloud Native Rioja identities.",
+      "Do keep focus and text contrast clear on both light and dark sections."
+    ],
+    "donts": [
+      "Don't use agent blue or terra for body text on light backgrounds.",
+      "Don't add heavy shadows to every card.",
+      "Don't turn community content into corporate-style claims or invented proof."
+    ]
+  }
+}
