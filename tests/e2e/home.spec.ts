@@ -91,6 +91,15 @@ test('reduced motion swaps GIFs for still images', async ({ page }) => {
   expect(await robot.evaluate((img: HTMLImageElement) => img.currentSrc)).toMatch(/\.png$/);
 });
 
+test('serves efficient animated artwork to motion-enabled visitors', async ({ page }) => {
+  const robots = page.locator('#topics img');
+  await robots.first().scrollIntoViewIfNeeded();
+  await expect(robots.first()).toHaveJSProperty('complete', true);
+  for (const robot of await robots.all()) {
+    expect(await robot.evaluate((img: HTMLImageElement) => img.currentSrc)).toMatch(/\.webp$/);
+  }
+});
+
 test('keeps the AAIF chapter affiliation visible', async ({ page }) => {
   const strip = page.getByRole('region', { name: 'Our foundation' });
   await expect(strip.getByRole('link', { name: 'Agentic AI Foundation (AAIF)' })).toHaveAttribute('href', 'https://aaif.io');
