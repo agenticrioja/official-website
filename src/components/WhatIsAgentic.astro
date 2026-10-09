@@ -1,33 +1,37 @@
 ---
 import AgentGif from './AgentGif.astro';
-import a1 from '../assets/brand/agent-01.gif';
-import a2 from '../assets/brand/agent-02.gif';
-import a3 from '../assets/brand/agent-03.gif';
-import a4 from '../assets/brand/agent-04.gif';
+import a1 from '../assets/brand/agent-01.webp';
+import a2 from '../assets/brand/agent-02.webp';
+import a3 from '../assets/brand/agent-03.webp';
+import a4 from '../assets/brand/agent-04.webp';
 import s1 from '../assets/brand/agent-01-still.png';
 import s2 from '../assets/brand/agent-02-still.png';
 import s3 from '../assets/brand/agent-03-still.png';
 import s4 from '../assets/brand/agent-04-still.png';
+import { ui } from '../i18n/ui';
+import type { Locale } from '../i18n/locales';
+interface Props { locale: Locale }
+const t = ui[Astro.props.locale];
 // Accent bar colour matches each robot's colour.
 const cards = [
-  { img: a1, still: s1, tag: 'bg-[#6c5ce7]', title: 'AI agents', text: "AI that doesn't just answer questions: it plans, decides and gets things done." },
-  { img: a2, still: s2, tag: 'bg-agent', title: 'Tools & MCP', text: 'How agents safely connect to your files, APIs and services through open protocols.' },
-  { img: a3, still: s3, tag: 'bg-[#14b8b0]', title: 'Multi-agent workflows', text: 'Teams of agents that split up the work, hand it over and check each other.' },
-  { img: a4, still: s4, tag: 'bg-ochre', title: 'Open & vendor-neutral', text: 'Open standards so nobody gets locked in, and your agents keep working together.' },
+  { img: a1, still: s1, tag: 'bg-[#6c5ce7]' },
+  { img: a2, still: s2, tag: 'bg-agent' },
+  { img: a3, still: s3, tag: 'bg-[#14b8b0]' },
+  { img: a4, still: s4, tag: 'bg-ochre' },
 ];
 ---
 <section id="topics" class="mx-auto max-w-6xl px-4 py-16 md:py-24">
-  <h2 class="font-display text-3xl font-bold sm:text-4xl">What we talk about</h2>
+  <h2 class="font-display text-3xl font-bold sm:text-4xl">{t.topics.heading}</h2>
   <p class="mt-4 max-w-2xl text-lg text-ink/80">
-    New to agents? Perfect. Our meetups mix people who already run agents in production with people who are just getting curious.
+    {t.topics.intro}
   </p>
   <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-    {cards.map((c) => (
+    {cards.map((c, index) => (
       <article class="rounded-3xl bg-white p-6 ring-1 ring-ink/5">
         <AgentGif gif={c.img} still={c.still} size={96} class="mb-4 h-24 w-24 rounded-2xl" />
         <span class={`mb-3 inline-block h-1.5 w-10 rounded-full ${c.tag}`}></span>
-        <h3 class="text-xl font-semibold">{c.title}</h3>
-        <p class="mt-2 text-ink/80">{c.text}</p>
+        <h3 class="text-xl font-semibold">{t.topics.cards[index][0]}</h3>
+        <p class="mt-2 text-ink/80">{t.topics.cards[index][1]}</p>
       </article>
     ))}
   </div>

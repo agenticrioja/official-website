@@ -1,23 +1,24 @@
 ---
 import { LUMA_URL } from '../site';
-const items = [
-  { title: 'Come to a meetup', text: "You don't need to be an expert. Curiosity is enough." },
-  { title: 'Give a talk', text: "Built something with agents, big or small? First-time speakers are very welcome." },
-  { title: 'Lend us a space', text: 'Have a venue in Logroño, or want to support the community? Let’s talk.' },
-];
+import { ui } from '../i18n/ui';
+import type { Locale } from '../i18n/locales';
+interface Props { locale: Locale }
+const t = ui[Astro.props.locale];
 ---
 <section id="join" class="bg-vine text-white">
-  <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
-    <h2 class="font-display text-3xl font-bold sm:text-4xl">Come along</h2>
-    <p class="mt-4 max-w-2xl text-lg text-white">The community is whatever we make it. There's room for everyone.</p>
-    <div class="mt-10 grid gap-5 md:grid-cols-3">
-      {items.map((i) => (
-        <article class="rounded-3xl bg-black/15 p-6 ring-1 ring-white/15">
-          <h3 class="text-xl font-semibold">{i.title}</h3>
-          <p class="mt-2 text-white">{i.text}</p>
-        </article>
-      ))}
+  <div class="mx-auto grid max-w-6xl gap-12 px-4 py-16 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] md:items-start md:gap-20 md:py-24">
+    <div>
+      <h2 class="max-w-lg text-balance font-display text-3xl font-bold sm:text-4xl">{t.join.heading}</h2>
+      <p class="mt-4 max-w-xl text-lg text-white/90">{t.join.intro}</p>
+      <a href={LUMA_URL} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-11 items-center rounded-full bg-cream px-6 py-3 font-semibold text-ink transition-colors hover:bg-white">{t.joinLuma}</a>
     </div>
-    <a href={LUMA_URL} class="mt-8 inline-block rounded-full bg-cream px-6 py-3 font-semibold text-ink hover:bg-white">Join us on Luma</a>
+    <ul class="divide-y divide-white/20 border-y border-white/20">
+      {t.join.items.map((item) => (
+        <li class="py-5 first:pt-0 last:pb-0 md:first:pt-5 md:last:pb-5">
+          <h3 class="text-xl font-semibold">{item[0]}</h3>
+          <p class="mt-1.5 max-w-xl text-white/85">{item[1]}</p>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>

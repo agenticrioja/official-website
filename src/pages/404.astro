@@ -2,11 +2,14 @@
 import Base from '../layouts/Base.astro';
 import LogoMark from '../components/LogoMark.astro';
 ---
-<Base title="Page not found · Agentic Rioja">
+<Base locale="es" title="Página no encontrada · Page not found · Agentic Rioja">
   <main id="main" class="mx-auto flex min-h-screen max-w-xl flex-col items-center justify-center gap-4 px-4 text-center">
     <LogoMark class="h-16 w-16" />
     <h1 class="font-display text-5xl font-bold">404</h1>
-    <p class="text-lg text-ink/80">This agent took a wrong turn somewhere around the Espolón.</p>
-    <a href="/" class="rounded-full bg-wine px-6 py-3 font-semibold text-white hover:bg-wine-deep">Back home</a>
+    <p class="text-lg text-ink/80">Este agente se perdió cerca del Espolón.<br /><span lang="en">This agent took a wrong turn somewhere around the Espolón.</span></p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="/" lang="es" class="rounded-full bg-wine px-6 py-3 font-semibold text-white hover:bg-wine-deep">Volver al inicio</a>
+      <a href="/en/" lang="en" class="rounded-full border border-wine px-6 py-3 font-semibold text-wine hover:bg-white">Back home</a>
+    </div>
   </main>
 </Base>

@@ -3,7 +3,7 @@
 **Goal:** publish a meetup on the site from its Luma page or the organizers' notes.
 
 ## Inputs
-You need the title, start and end time (Logroño local time), venue, Luma URL, a one-paragraph summary, and speakers (optional). If anything is missing, ask the organizers. Never guess dates, venues or speakers.
+You need the title, start and end time (Logroño local time), venue, Luma URL, a one-paragraph summary in English and Spanish, and speakers (optional). If anything is missing, ask the organizers. Never guess dates, venues or speakers.
 
 ## Steps
 1. Create `src/content/events/<yyyy-mm-dd>-<slug>.md`:
@@ -14,7 +14,9 @@ You need the title, start and end time (Logroño local time), venue, Luma URL, a
    endDate: 2026-11-20T21:00:00+01:00
    venue: Venue name, Logroño
    lumaUrl: https://luma.com/<event-id>
-   summary: "One or two friendly sentences: what people will see and learn."
+   summary:
+     en: "One or two friendly sentences in English: what people will see and learn."
+     es: "Uno o dos mensajes amables en español: qué verán y aprenderán las personas."
    speakers: ["Name Surname"]
    ---
    ```

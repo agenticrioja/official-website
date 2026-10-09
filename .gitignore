@@ -7,3 +7,10 @@ brand-kit/
 *.xlsx
 test-results/
 playwright-report/
+.impeccable/hook.cache.json
+.impeccable/config.local.json
+.impeccable/live/accept-receipts/
+.impeccable/live/roots.json
+.impeccable/live/sessions/
+docs/superpowers/
+.superpowers/

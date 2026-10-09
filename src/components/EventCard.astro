@@ -1,21 +1,24 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { formatEventDate } from '../lib/events';
-interface Props { event: CollectionEntry<'events'>; past?: boolean }
-const { event, past = false } = Astro.props;
+import { localize, type Locale } from '../i18n/locales';
+import { ui } from '../i18n/ui';
+interface Props { event: CollectionEntry<'events'>; locale: Locale; past?: boolean }
+const { event, locale, past = false } = Astro.props;
+const t = ui[locale];
 const { title, date, tba, venue, lumaUrl, summary, speakers } = event.data;
 ---
 <article class="flex flex-col rounded-3xl bg-white p-6 text-ink">
   <p class="text-sm font-semibold text-wine">
-    {formatEventDate({ date, tba })}
+    {formatEventDate({ date, tba }, locale)}
   </p>
-  <h3 class="mt-2 text-xl font-semibold">{title}</h3>
+  <h3 class="mt-2 text-xl font-semibold">{localize(title, locale)}</h3>
   {venue && <p class="mt-1 text-sm text-ink/70">{venue}</p>}
-  <p class="mt-3 text-ink/80">{summary}</p>
-  {speakers.length > 0 && <p class="mt-3 text-sm"><span class="font-semibold">Speakers:</span> {speakers.join(', ')}</p>}
+  <p class="mt-3 text-ink/80">{localize(summary, locale)}</p>
+  {speakers.length > 0 && <p class="mt-3 text-sm"><span class="font-semibold">{t.events.speakers}</span> {speakers.join(', ')}</p>}
   {lumaUrl && (
-    <a href={lumaUrl} class="mt-5 self-start rounded-full bg-wine px-5 py-2 text-sm font-semibold text-white hover:bg-ink">
-      {past ? 'View on Luma' : tba ? 'Get notified on Luma' : 'RSVP on Luma'}
+    <a href={lumaUrl} target="_blank" rel="noopener noreferrer" class="mt-5 self-start rounded-full bg-wine px-5 py-2 text-sm font-semibold text-white hover:bg-ink">
+      {past ? t.events.view : tba ? t.events.notify : t.events.rsvp}
     </a>
   )}
 </article>

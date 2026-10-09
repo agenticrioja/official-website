@@ -3,30 +3,36 @@ import { getCollection } from 'astro:content';
 import EventCard from './EventCard.astro';
 import { LUMA_URL } from '../site';
 import { splitEvents, eventsJsonLd } from '../lib/events';
+import { ui } from '../i18n/ui';
+import type { Locale } from '../i18n/locales';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = ui[locale];
 
 const all = await getCollection('events');
 const { upcoming, past } = splitEvents(all, Date.now());
-const jsonLd = eventsJsonLd(upcoming, Astro.site!.href);
+const jsonLd = eventsJsonLd(upcoming, Astro.site!.href, locale);
 ---
 {jsonLd.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 <section id="events" class="bg-wine-deep text-cream">
   <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
-    <h2 class="font-display text-3xl font-bold sm:text-4xl">Upcoming meetups</h2>
-    <p class="mt-4 max-w-2xl text-lg text-cream/80">In person, here in Logroño. Grab your spot on Luma.</p>
+    <h2 class="font-display text-3xl font-bold sm:text-4xl">{t.events.heading}</h2>
+    <p class="mt-4 max-w-2xl text-lg text-cream/80">{t.events.intro}</p>
     {upcoming.length === 0 ? (
       <p class="mt-10 rounded-3xl bg-white/10 p-6">
-        Our first meetup is on its way. <a href={LUMA_URL} class="font-semibold text-ochre underline">Follow us on Luma</a> and you'll be the first to know.
+        {t.events.empty} <a href={LUMA_URL} target="_blank" rel="noopener noreferrer" class="font-semibold text-ochre underline">{t.events.follow}</a>
       </p>
     ) : (
       <div class="mt-10 grid gap-5 md:grid-cols-2">
-        {upcoming.map((e) => <EventCard event={e} />)}
+        {upcoming.map((e) => <EventCard event={e} locale={locale} />)}
       </div>
     )}
     {past.length > 0 && (
       <details class="mt-10">
-        <summary class="cursor-pointer font-semibold">Past meetups ({past.length})</summary>
+        <summary class="cursor-pointer font-semibold">{t.events.past} ({past.length})</summary>
         <div class="mt-5 grid gap-5 md:grid-cols-2">
-          {past.map((e) => <EventCard event={e} past />)}
+          {past.map((e) => <EventCard event={e} locale={locale} past />)}
         </div>
       </details>
     )}
