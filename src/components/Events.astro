@@ -21,7 +21,7 @@ const jsonLd = eventsJsonLd(upcoming, Astro.site!.href, locale);
     <p class="mt-4 max-w-2xl text-lg text-cream/80">{t.events.intro}</p>
     {upcoming.length === 0 ? (
       <p class="mt-10 rounded-3xl bg-white/10 p-6">
-        {t.events.empty} <a href={LUMA_URL} class="font-semibold text-ochre underline">{t.events.follow}</a>
+        {t.events.empty} <a href={LUMA_URL} target="_blank" rel="noopener noreferrer" class="font-semibold text-ochre underline">{t.events.follow}</a>
       </p>
     ) : (
       <div class="mt-10 grid gap-5 md:grid-cols-2">

@@ -28,9 +28,9 @@ const people = (await getCollection('organizers')).sort((a, b) => a.data.order -
             <p class="text-sm text-ink/70">{localize(p.data.role, locale)}{p.data.company && ` · ${p.data.company}`}</p>
             {p.data.bio && <p class="mt-2 text-sm text-ink/80">{localize(p.data.bio, locale)}</p>}
             <p class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm font-semibold text-wine">
-              {p.data.linkedin && <a href={p.data.linkedin} class="underline">LinkedIn</a>}
-              {p.data.github && <a href={p.data.github} class="underline">GitHub</a>}
-              {p.data.website && <a href={p.data.website} class="underline">{t.organizers.website}</a>}
+              {p.data.linkedin && <a href={p.data.linkedin} target="_blank" rel="noopener noreferrer" class="underline">LinkedIn</a>}
+              {p.data.github && <a href={p.data.github} target="_blank" rel="noopener noreferrer" class="underline">GitHub</a>}
+              {p.data.website && <a href={p.data.website} target="_blank" rel="noopener noreferrer" class="underline">{t.organizers.website}</a>}
             </p>
           </div>
         </article>

@@ -16,16 +16,16 @@ const t = ui[Astro.props.locale];
       </div>
       <p class="mt-4 text-sm">{t.footer.tagline}</p>
       <p class="mt-6 text-xs font-semibold tracking-wide uppercase">{t.footer.official}</p>
-      <a href={AAIF_URL} aria-label="Agentic AI Foundation" class="mt-2 inline-block"><img src={aaif.src} alt="" class="h-9 w-auto" width="149" height="36" loading="lazy" /></a>
-      <p class="mt-2 text-xs">{t.footer.foundation} <a href={LF_URL} class="underline hover:text-white">Linux Foundation</a>{t.footer.project === '.' ? t.footer.project : ` ${t.footer.project}`}</p>
+      <a href={AAIF_URL} target="_blank" rel="noopener noreferrer" aria-label="Agentic AI Foundation" class="mt-2 inline-block"><img src={aaif.src} alt="" class="h-9 w-auto" width="149" height="36" loading="lazy" /></a>
+      <p class="mt-2 text-xs">{t.footer.foundation} <a href={LF_URL} target="_blank" rel="noopener noreferrer" class="underline hover:text-white">Linux Foundation</a>{t.footer.project === '.' ? t.footer.project : ` ${t.footer.project}`}</p>
     </div>
     <nav aria-label={t.footerNav} class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-      <a href={LUMA_URL} class="hover:text-white">Luma</a>
-      <a href={AAIF_URL} class="hover:text-white">aaif.io</a>
-      <a href={CLOUD_NATIVE_RIOJA_URL} class="hover:text-white">Cloud Native Rioja</a>
-      <a href={GITHUB_URL} class="hover:text-white">GitHub</a>
-      <a href={LF_COC_URL} class="hover:text-white">{t.footer.coc}</a>
-      <a href={LF_PRIVACY_URL} class="hover:text-white">{t.footer.privacy}</a>
+      <a href={LUMA_URL} target="_blank" rel="noopener noreferrer" class="hover:text-white">Luma</a>
+      <a href={AAIF_URL} target="_blank" rel="noopener noreferrer" class="hover:text-white">aaif.io</a>
+      <a href={CLOUD_NATIVE_RIOJA_URL} target="_blank" rel="noopener noreferrer" class="hover:text-white">Cloud Native Rioja</a>
+      <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" class="hover:text-white">GitHub</a>
+      <a href={LF_COC_URL} target="_blank" rel="noopener noreferrer" class="hover:text-white">{t.footer.coc}</a>
+      <a href={LF_PRIVACY_URL} target="_blank" rel="noopener noreferrer" class="hover:text-white">{t.footer.privacy}</a>
     </nav>
   </div>
   <p class="border-t border-white/10 py-4 text-center text-xs">© {new Date().getFullYear()} Agentic Rioja · {t.footer.made}</p>

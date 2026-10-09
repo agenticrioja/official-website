@@ -10,7 +10,7 @@ const t = ui[Astro.props.locale];
     <div>
       <h2 class="max-w-lg text-balance font-display text-3xl font-bold sm:text-4xl">{t.join.heading}</h2>
       <p class="mt-4 max-w-xl text-lg text-white/90">{t.join.intro}</p>
-      <a href={LUMA_URL} class="mt-8 inline-flex min-h-11 items-center rounded-full bg-cream px-6 py-3 font-semibold text-ink transition-colors hover:bg-white">{t.joinLuma}</a>
+      <a href={LUMA_URL} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-11 items-center rounded-full bg-cream px-6 py-3 font-semibold text-ink transition-colors hover:bg-white">{t.joinLuma}</a>
     </div>
     <ul class="divide-y divide-white/20 border-y border-white/20">
       {t.join.items.map((item) => (

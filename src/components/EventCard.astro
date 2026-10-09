@@ -17,7 +17,7 @@ const { title, date, tba, venue, lumaUrl, summary, speakers } = event.data;
   <p class="mt-3 text-ink/80">{localize(summary, locale)}</p>
   {speakers.length > 0 && <p class="mt-3 text-sm"><span class="font-semibold">{t.events.speakers}</span> {speakers.join(', ')}</p>}
   {lumaUrl && (
-    <a href={lumaUrl} class="mt-5 self-start rounded-full bg-wine px-5 py-2 text-sm font-semibold text-white hover:bg-ink">
+    <a href={lumaUrl} target="_blank" rel="noopener noreferrer" class="mt-5 self-start rounded-full bg-wine px-5 py-2 text-sm font-semibold text-white hover:bg-ink">
       {past ? t.events.view : tba ? t.events.notify : t.events.rsvp}
     </a>
   )}

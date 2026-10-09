@@ -2,6 +2,30 @@ import { expect, test } from '@playwright/test';
 
 const LUMA = 'https://luma.com/aaif-logrono';
 
+for (const [locale, path] of [['es', '/'], ['en', '/en/']] as const) {
+  test(`${locale} opens external links safely in a new tab`, async ({ page }) => {
+    await page.addInitScript((language) => {
+      localStorage.setItem('agentic-rioja-locale', language);
+    }, locale);
+    await page.goto(path);
+    await expect(page.locator('html')).toHaveAttribute('lang', locale);
+    const links = await page.evaluate(() =>
+      Array.from(document.querySelectorAll<HTMLAnchorElement>('a[href]')).map((link) => {
+        return { href: link.href, external: new URL(link.href).origin !== location.origin, target: link.target, rel: link.rel };
+      }),
+    );
+    expect(links.filter((link) => link.external).length).toBeGreaterThan(0);
+    for (const link of links) {
+      if (link.external) {
+        expect(link.target, link.href).toBe('_blank');
+        expect(link.rel.split(/\s+/), link.href).toEqual(expect.arrayContaining(['noopener', 'noreferrer']));
+      } else {
+        expect(link.target, link.href).not.toBe('_blank');
+      }
+    }
+  });
+}
+
 test.beforeEach(async ({ page }) => {
   await page.goto('/en/');
 });
