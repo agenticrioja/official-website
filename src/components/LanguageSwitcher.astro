@@ -3,9 +3,9 @@ import { localePath, type Locale } from '../i18n/locales';
 interface Props { locale: Locale; compact?: boolean }
 const { locale, compact = false } = Astro.props;
 ---
-<div role="group" aria-label={locale === 'es' ? 'Idioma' : 'Language'} class:list={['language-switcher flex items-center rounded-full border border-ink/20 p-0.5 text-xs font-semibold', compact && 'self-start']}>
-  <a href={localePath('es')} data-locale="es" lang="es" aria-current={locale === 'es' ? 'page' : undefined} class="flex min-h-12 min-w-12 items-center justify-center rounded-full px-2.5 py-1 underline-offset-2 aria-[current=page]:bg-wine aria-[current=page]:text-white aria-[current=page]:underline">ES</a>
-  <a href={localePath('en')} data-locale="en" lang="en" aria-current={locale === 'en' ? 'page' : undefined} class="flex min-h-12 min-w-12 items-center justify-center rounded-full px-2.5 py-1 underline-offset-2 aria-[current=page]:bg-wine aria-[current=page]:text-white aria-[current=page]:underline">EN</a>
+<div role="group" aria-label={locale === 'es' ? 'Idioma' : 'Language'} class:list={['language-switcher flex items-center rounded-full border border-ink/20 px-0.5 text-xs font-semibold', compact && 'self-start']}>
+  <a href={localePath('es')} data-locale="es" lang="es" aria-current={locale === 'es' ? 'page' : undefined} class="flex items-center justify-center rounded-full px-2">ES</a>
+  <a href={localePath('en')} data-locale="en" lang="en" aria-current={locale === 'en' ? 'page' : undefined} class="flex items-center justify-center rounded-full px-2">EN</a>
 </div>
 
 <script>
@@ -23,3 +23,52 @@ const { locale, compact = false } = Astro.props;
     });
   });
 </script>
+
+<style>
+  .language-switcher a {
+    position: relative;
+    isolation: isolate;
+    min-width: 50px;
+    min-height: 45px;
+    flex-shrink: 0;
+    text-decoration: none;
+    transition: color 160ms ease-out;
+  }
+
+  .language-switcher a::before {
+    position: absolute;
+    /* Outer border + horizontal padding make this a uniform 7px inset. */
+    inset: 6px 4px;
+    z-index: -1;
+    border-radius: inherit;
+    background: transparent;
+    content: '';
+    transition: background-color 160ms ease-out;
+  }
+
+  .language-switcher a:not([aria-current='page']):hover {
+    color: var(--color-wine);
+  }
+
+  .language-switcher a:not([aria-current='page']):hover::before {
+    background: color-mix(in srgb, var(--color-wine) 8%, transparent);
+  }
+
+  .language-switcher a[aria-current='page'] {
+    color: white;
+    font-weight: 700;
+  }
+
+  .language-switcher a[aria-current='page']::before {
+    background: var(--color-wine);
+  }
+
+  .language-switcher a[aria-current='page']:hover::before {
+    background: var(--color-wine-deep);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .language-switcher a,
+    .language-switcher a::before { transition: none; }
+  }
+</style>

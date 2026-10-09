@@ -45,11 +45,21 @@ test('mobile language controls have touch targets and a non-color current state'
   test.skip(!isMobile, 'mobile only');
   await page.goto('/en/');
   await page.locator('#mobile-menu summary').click();
+  const switcher = page.locator('#mobile-menu .language-switcher');
   const current = page.locator('#mobile-menu .language-switcher a[aria-current="page"]');
+  const alternate = page.locator('#mobile-menu .language-switcher a:not([aria-current="page"])');
   const box = await current.boundingBox();
+  const switcherBox = await switcher.boundingBox();
   expect(box?.width).toBeGreaterThanOrEqual(44);
   expect(box?.height).toBeGreaterThanOrEqual(44);
-  await expect(current).toHaveCSS('text-decoration-line', /underline/);
+  expect(box!.width).toBeGreaterThan(box!.height);
+  expect(switcherBox?.height).toBeLessThanOrEqual(48);
+  await expect(switcher).toHaveCSS('border-top-style', 'solid');
+  await expect(switcher).toHaveCSS('border-top-width', '1px');
+  expect(parseFloat(await switcher.evaluate((element) => getComputedStyle(element).borderRadius))).toBeGreaterThan(20);
+  await expect(current).toHaveCSS('text-decoration-line', 'none');
+  expect(Number(await current.evaluate((link) => getComputedStyle(link).fontWeight)))
+    .toBeGreaterThan(Number(await alternate.evaluate((link) => getComputedStyle(link).fontWeight)));
 });
 
 for (const preference of [
