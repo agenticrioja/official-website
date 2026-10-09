@@ -17,7 +17,7 @@ const t = ui[Astro.props.locale];
       <p class="mt-4 text-sm">{t.footer.tagline}</p>
       <p class="mt-6 text-xs font-semibold tracking-wide uppercase">{t.footer.official}</p>
       <a href={AAIF_URL} aria-label="Agentic AI Foundation" class="mt-2 inline-block"><img src={aaif.src} alt="" class="h-9 w-auto" width="149" height="36" loading="lazy" /></a>
-      <p class="mt-2 text-xs">{t.footer.foundation} <a href={LF_URL} class="underline hover:text-white">Linux Foundation</a> {t.footer.project}</p>
+      <p class="mt-2 text-xs">{t.footer.foundation} <a href={LF_URL} class="underline hover:text-white">Linux Foundation</a>{t.footer.project === '.' ? t.footer.project : ` ${t.footer.project}`}</p>
     </div>
     <nav aria-label={t.footerNav} class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
       <a href={LUMA_URL} class="hover:text-white">Luma</a>

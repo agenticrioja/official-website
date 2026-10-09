@@ -14,7 +14,7 @@ const t = ui[Astro.props.locale];
     </a>
     <p class="text-sm text-ink/80 md:border-l md:border-ink/15 md:pl-8">
       {t.affiliation.foundation}{" "}<br class="hidden md:inline" />
-      <a href={LF_URL} class="font-semibold text-wine underline">Linux Foundation</a>{" "}{t.affiliation.project}
+      <a href={LF_URL} class="font-semibold text-wine underline">Linux Foundation</a>{t.affiliation.project === '.' ? t.affiliation.project : ` ${t.affiliation.project}`}
     </p>
   </div>
 </section>
