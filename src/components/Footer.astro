@@ -1,7 +1,7 @@
 ---
 import LogoMark from './LogoMark.astro';
 import aaif from '../assets/brand/aaif-logo-white.svg';
-import { AAIF_URL, CLOUD_NATIVE_RIOJA_URL, LUMA_URL, LF_COC_URL, LF_PRIVACY_URL, LF_URL } from '../site';
+import { AAIF_URL, CLOUD_NATIVE_RIOJA_URL, GITHUB_URL, LUMA_URL, LF_COC_URL, LF_PRIVACY_URL, LF_URL } from '../site';
 import { ui } from '../i18n/ui';
 import type { Locale } from '../i18n/locales';
 interface Props { locale: Locale }
@@ -23,6 +23,7 @@ const t = ui[Astro.props.locale];
       <a href={LUMA_URL} class="hover:text-white">Luma</a>
       <a href={AAIF_URL} class="hover:text-white">aaif.io</a>
       <a href={CLOUD_NATIVE_RIOJA_URL} class="hover:text-white">Cloud Native Rioja</a>
+      <a href={GITHUB_URL} class="hover:text-white">GitHub</a>
       <a href={LF_COC_URL} class="hover:text-white">{t.footer.coc}</a>
       <a href={LF_PRIVACY_URL} class="hover:text-white">{t.footer.privacy}</a>
     </nav>

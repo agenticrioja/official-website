@@ -119,3 +119,7 @@ test('links to our sibling community, Cloud Native Rioja', async ({ page }) => {
   await expect(page.locator('#about').getByRole('link', { name: 'cloudnativerioja.com' })).toHaveAttribute('href', 'https://cloudnativerioja.com');
   await expect(page.locator('footer').getByRole('link', { name: 'Cloud Native Rioja' })).toHaveAttribute('href', 'https://cloudnativerioja.com');
 });
+
+test('links to the Agentic Rioja GitHub organization', async ({ page }) => {
+  await expect(page.locator('footer').getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', 'https://github.com/agenticrioja');
+});

@@ -6,3 +6,4 @@ export const LF_PRIVACY_URL = 'https://www.linuxfoundation.org/legal/privacy-pol
 export const LF_URL = 'https://www.linuxfoundation.org';
 export const CLOUD_NATIVE_RIOJA_URL = 'https://cloudnativerioja.com';
 export const CNCF_URL = 'https://www.cncf.io';
+export const GITHUB_URL = 'https://github.com/agenticrioja';
