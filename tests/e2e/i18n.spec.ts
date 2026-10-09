@@ -14,7 +14,7 @@ test('keeps a Spanish browser on the Spanish root', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveURL(/\/$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'es');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Creando agentes de IA');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Aprende y crea agentes de IA');
 });
 
 test('manual language choice persists and preserves the section hash', async ({ page, isMobile }) => {

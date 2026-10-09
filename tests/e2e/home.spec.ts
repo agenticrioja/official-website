@@ -8,13 +8,13 @@ test.beforeEach(async ({ page }) => {
 
 test('shows the hero with a Luma call to action', async ({ page }) => {
   await expect(page).toHaveTitle(/^Agentic Rioja/);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Building AI agents in La Rioja, together.');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Learn and build AI agents in La Rioja.');
   await expect(page.getByRole('img', { name: /Illustration of Logroño/ })).toBeVisible();
-  await expect(page.locator('main').getByRole('link', { name: 'Join us on Luma' }).first()).toHaveAttribute('href', LUMA);
+  await expect(page.locator('main').getByRole('link', { name: 'Meetups on Luma' }).first()).toHaveAttribute('href', LUMA);
 });
 
 test('renders every section', async ({ page }) => {
-  for (const heading of ['What we talk about', 'Upcoming meetups', 'What a meetup looks like', 'Made in La Rioja', "Who's behind this", 'Come along']) {
+  for (const heading of ['Explore how agents work', 'Upcoming meetups', 'What to expect at a meetup', 'Made in La Rioja', "Who's behind this", 'Join us in Logroño']) {
     await expect(page.getByRole('heading', { level: 2, name: heading })).toBeVisible();
   }
 });
@@ -23,7 +23,7 @@ test('distills participation into one action and a simple list', async ({ page }
   const join = page.locator('#join');
   await expect(join.getByRole('listitem')).toHaveCount(3);
   await expect(join.locator('article')).toHaveCount(0);
-  await expect(join.getByRole('link', { name: 'Join us on Luma' })).toHaveCount(1);
+  await expect(join.getByRole('link', { name: 'Meetups on Luma' })).toHaveCount(1);
 });
 
 test('every in-page link points to an existing section', async ({ page }) => {
@@ -38,7 +38,7 @@ test('events section shows event cards or the coming-soon notice', async ({ page
   const events = page.locator('#events');
   const cards = events.locator('article');
   if ((await cards.count()) === 0) {
-    await expect(events.getByText('Our first meetup is on its way.')).toBeVisible();
+    await expect(events.getByText('We’re planning our first meetup.')).toBeVisible();
   } else {
     await expect(cards.first().getByRole('heading', { level: 3 })).toBeVisible();
     await expect(cards.first().getByRole('link', { name: /Luma/ })).toHaveAttribute('href', /^https:\/\/luma\.com\//);
@@ -84,7 +84,7 @@ test('mobile menu opens and closes after choosing a link', async ({ page, isMobi
   const menu = page.locator('#mobile-menu');
   await menu.getByText('Menu').click();
   await expect(menu).toHaveAttribute('open', '');
-  await menu.getByRole('link', { name: 'Meetups' }).click();
+  await menu.getByRole('link', { name: 'Meetups', exact: true }).click();
   await expect(menu).not.toHaveAttribute('open');
   await expect(page).toHaveURL(/#events$/);
 });
