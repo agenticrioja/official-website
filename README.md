@@ -35,19 +35,26 @@ docker run --rm -p 8080:80 agenticrioja   # http://localhost:8080
 Create `src/content/events/<slug>.md`:
 ```md
 ---
-title: Building agents with MCP
+title:
+  es: Creando agentes con MCP
+  en: Building agents with MCP
 date: 2026-11-20T18:30:00+01:00
 endDate: 2026-11-20T21:00:00+01:00
 venue: Logroño, La Rioja
 lumaUrl: https://luma.com/<event-id>
-summary: "One-line description."
+summary:
+  es: "Descripción en una línea."
+  en: "One-line description."
 speakers: ["Name Surname"]
 ---
 ```
 - Always include the timezone offset (`+01:00` in winter, `+02:00` in summer). Without it the time is read as UTC.
-- Quote `summary` if it contains a colon.
+- Provide both `es` and `en` values for `title` and `summary`. Quote either value if it contains a colon.
 - Use `tba: true` and leave out `date` for an announced event that has no date yet.
 - Finished events move to "Past events" on their own, because the site is rebuilt every day.
+
+## Languages
+Spanish is served at `/` and English at `/en/`. On the root page, browsers whose primary language is not Spanish are redirected to English. A manual choice in the language switcher is saved and takes precedence on later visits.
 
 ## Organizers
 Each organizer is a file in `src/content/organizers/`. A `photo` in `src/assets/people/` replaces the AAIF badge.
