@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 const LUMA = 'https://luma.com/aaif-logrono';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/en/');
 });
 
 test('shows the hero with a Luma call to action', async ({ page }) => {
@@ -56,7 +56,7 @@ test('all images and the OG image load', async ({ page, request }) => {
 
 test('has SEO metadata and valid structured data', async ({ page }) => {
   await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /Logroño/);
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://agenticrioja.com/');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://agenticrioja.com/en/');
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://agenticrioja.com/og.png');
   const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
   const parsed = blocks.flatMap((b) => [JSON.parse(b)].flat());
@@ -88,7 +88,7 @@ test('reduced motion swaps GIFs for still images', async ({ page }) => {
   const robot = page.locator('#topics img').first();
   await robot.scrollIntoViewIfNeeded();
   await expect(robot).toHaveJSProperty('complete', true);
-  expect(await robot.evaluate((img: HTMLImageElement) => img.currentSrc)).toMatch(/\.png$/);
+  expect(await robot.evaluate((img: HTMLImageElement) => img.currentSrc)).toMatch(/\.png(?:\?|$)/);
 });
 
 test('serves efficient animated artwork to motion-enabled visitors', async ({ page }) => {
@@ -96,7 +96,7 @@ test('serves efficient animated artwork to motion-enabled visitors', async ({ pa
   await robots.first().scrollIntoViewIfNeeded();
   await expect(robots.first()).toHaveJSProperty('complete', true);
   for (const robot of await robots.all()) {
-    expect(await robot.evaluate((img: HTMLImageElement) => img.currentSrc)).toMatch(/\.webp$/);
+    expect(await robot.evaluate((img: HTMLImageElement) => img.currentSrc)).toMatch(/\.webp(?:\?|$)/);
   }
 });
 

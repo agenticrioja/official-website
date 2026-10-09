@@ -1,38 +1,42 @@
 ---
 import aaif from '../assets/brand/aaif-logo-black.svg';
 import cloudNativeRioja from '../assets/community/cloud-native-rioja.svg';
-import { AAIF_URL, CLOUD_NATIVE_RIOJA_URL, CNCF_URL, LF_COC_URL, LF_URL } from '../site';
+import { AAIF_URL, CLOUD_NATIVE_RIOJA_URL, CNCF_URL, LF_COC_URL } from '../site';
+import { ui } from '../i18n/ui';
+import type { Locale } from '../i18n/locales';
+interface Props { locale: Locale }
+const t = ui[Astro.props.locale];
 ---
 <section id="about" class="bg-sand/60">
   <div class="mx-auto grid max-w-6xl gap-12 px-4 py-16 md:grid-cols-[1.2fr_1fr] md:py-24">
     <div>
-      <h2 class="font-display text-3xl font-bold sm:text-4xl">Made in La Rioja</h2>
+      <h2 class="font-display text-3xl font-bold sm:text-4xl">{t.about.heading}</h2>
       <p class="mt-5 text-lg text-ink/80">
-        You shouldn't have to travel to Madrid, Barcelona or Bilbao to hear about what's new in AI. There's real talent in La Rioja: developers, researchers, startups and companies already working with AI.
+        {t.about.p1}
       </p>
       <p class="mt-4 text-lg text-ink/80">
-        Agentic Rioja is where we find each other, learn together and build things here. It's a small, friendly and vendor-neutral space where people come to share real work, not slides full of buzzwords.
+        {t.about.p2}
       </p>
       <div class="community-split">
         <a href={CLOUD_NATIVE_RIOJA_URL} aria-label="Cloud Native Rioja" class="community-split__logo">
           <img src={cloudNativeRioja.src} alt="" width="196" height="40" loading="lazy" />
         </a>
         <p class="community-split__copy">
-          <span class="community-split__title">Our sibling community.</span> Into Kubernetes and cloud native? Cloud Native Rioja is the community group for Kubernetes, containers and DevOps in La Rioja, part of the <a href={CNCF_URL}>Cloud Native Computing Foundation</a>, which, like the AAIF, belongs to the Linux Foundation.{" "}
+          <span class="community-split__title">{t.about.sibling}</span> {t.about.siblingText} <a href={CNCF_URL}>Cloud Native Computing Foundation</a>, {t.about.siblingEnd}{" "}
           <a href={CLOUD_NATIVE_RIOJA_URL}>cloudnativerioja.com</a>
         </p>
       </div>
     </div>
     <div class="self-start rounded-3xl bg-white p-8 ring-1 ring-ink/5">
       <a href={AAIF_URL} aria-label="Agentic AI Foundation (AAIF)"><img src={aaif.src} alt="" width="165" height="40" class="mb-6 h-10 w-auto" loading="lazy" /></a>
-      <p class="text-xs font-semibold tracking-wide text-vine uppercase">Part of something bigger</p>
-      <h3 class="mt-2 text-xl font-semibold">Logroño chapter of the AAIF</h3>
+      <p class="text-xs font-semibold tracking-wide text-vine uppercase">{t.about.bigger}</p>
+      <h3 class="mt-2 text-xl font-semibold">{t.about.chapter}</h3>
       <p class="mt-3 text-ink/80">
-        We're the local chapter of the Agentic AI Foundation, the <a href={LF_URL} class="underline">Linux Foundation</a>'s home for open agentic AI. That connects us with builders around the world, including our sister chapter in Silicon Valley.
+        {t.about.chapterText}
       </p>
       <p class="mt-5 text-sm">
-        <a href={AAIF_URL} class="font-semibold text-wine underline">About the AAIF</a>{" "}·{" "}
-        <a href={LF_COC_URL} class="font-semibold text-wine underline">Code of Conduct</a>
+        <a href={AAIF_URL} class="font-semibold text-wine underline">{t.about.aaif}</a>{" "}·{" "}
+        <a href={LF_COC_URL} class="font-semibold text-wine underline">{t.about.coc}</a>
       </p>
     </div>
   </div>

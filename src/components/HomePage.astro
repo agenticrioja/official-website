@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import Affiliation from './Affiliation.astro';
+import WhatIsAgentic from './WhatIsAgentic.astro';
+import Events from './Events.astro';
+import HowItWorks from './HowItWorks.astro';
+import About from './About.astro';
+import Organizers from './Organizers.astro';
+import GetInvolved from './GetInvolved.astro';
+import Footer from './Footer.astro';
+import type { Locale } from '../i18n/locales';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+<Base locale={locale} detectBrowserLanguage={locale === 'es'}>
+  <Header locale={locale} />
+  <main id="main">
+    <Hero locale={locale} />
+    <Affiliation locale={locale} />
+    <WhatIsAgentic locale={locale} />
+    <Events locale={locale} />
+    <HowItWorks locale={locale} />
+    <About locale={locale} />
+    <Organizers locale={locale} />
+    <GetInvolved locale={locale} />
+  </main>
+  <Footer locale={locale} />
+</Base>

@@ -1,11 +1,11 @@
 ---
 // Hand-drawn Logroño: La Redonda's twin towers, the Puente de Piedra over the Ebro,
 // vineyards in the foreground, and our agent enjoying the view.
-interface Props { class?: string }
-const { class: className } = Astro.props;
+interface Props { class?: string; label?: string }
+const { class: className, label = 'Illustration of Logroño' } = Astro.props;
 ---
 <svg data-logrono-scene viewBox="0 0 600 440" class={className} role="img" aria-labelledby="scene-title">
-  <title id="scene-title">Illustration of Logroño: the towers of La Redonda, the Puente de Piedra over the Ebro and Rioja vineyards, with a small robot</title>
+  <title id="scene-title">{label}</title>
   <rect width="600" height="440" fill="#fbe7cf" />
   <circle class="scene-sun" cx="478" cy="92" r="44" fill="#e3a33b" />
   <path d="M0,214 C90,170 170,196 250,182 C340,166 420,150 600,190 V300 H0 Z" fill="#efcfae" />

@@ -1,16 +1,20 @@
 ---
 import aaif from '../assets/brand/aaif-logo-black.svg';
 import { AAIF_URL, LF_URL } from '../site';
+import { ui } from '../i18n/ui';
+import type { Locale } from '../i18n/locales';
+interface Props { locale: Locale }
+const t = ui[Astro.props.locale];
 ---
-<section aria-label="Our foundation" class="border-y border-ink/10 bg-white">
+<section aria-label={t.affiliation.region} class="border-y border-ink/10 bg-white">
   <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-8 text-center md:flex-row md:justify-center md:gap-8 md:text-left">
-    <p class="text-sm font-semibold tracking-wide text-ink/70 uppercase">Official community chapter of</p>
+    <p class="text-sm font-semibold tracking-wide text-ink/70 uppercase">{t.affiliation.official}</p>
     <a href={AAIF_URL} aria-label="Agentic AI Foundation (AAIF)" class="shrink-0">
       <img src={aaif.src} alt="" width="198" height="48" class="h-12 w-auto" />
     </a>
     <p class="text-sm text-ink/80 md:border-l md:border-ink/15 md:pl-8">
-      The Agentic AI Foundation is a{" "}<br class="hidden md:inline" />
-      <a href={LF_URL} class="font-semibold text-wine underline">Linux Foundation</a> project.
+      {t.affiliation.foundation}{" "}<br class="hidden md:inline" />
+      <a href={LF_URL} class="font-semibold text-wine underline">Linux Foundation</a>{" "}{t.affiliation.project}
     </p>
   </div>
 </section>

@@ -2,6 +2,10 @@
 import LogoMark from './LogoMark.astro';
 import aaif from '../assets/brand/aaif-logo-white.svg';
 import { AAIF_URL, CLOUD_NATIVE_RIOJA_URL, LUMA_URL, LF_COC_URL, LF_PRIVACY_URL, LF_URL } from '../site';
+import { ui } from '../i18n/ui';
+import type { Locale } from '../i18n/locales';
+interface Props { locale: Locale }
+const t = ui[Astro.props.locale];
 ---
 <footer class="bg-wine-deep text-cream/80">
   <div class="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 md:flex-row md:items-start md:justify-between">
@@ -10,18 +14,18 @@ import { AAIF_URL, CLOUD_NATIVE_RIOJA_URL, LUMA_URL, LF_COC_URL, LF_PRIVACY_URL,
         <LogoMark class="h-9 w-9" />
         <span class="font-display text-lg font-bold">Agentic Rioja</span>
       </div>
-      <p class="mt-4 text-sm">The AI agents community in Logroño, La Rioja.</p>
-      <p class="mt-6 text-xs font-semibold tracking-wide uppercase">Official chapter of</p>
+      <p class="mt-4 text-sm">{t.footer.tagline}</p>
+      <p class="mt-6 text-xs font-semibold tracking-wide uppercase">{t.footer.official}</p>
       <a href={AAIF_URL} aria-label="Agentic AI Foundation" class="mt-2 inline-block"><img src={aaif.src} alt="" class="h-9 w-auto" width="149" height="36" loading="lazy" /></a>
-      <p class="mt-2 text-xs">The Agentic AI Foundation is a <a href={LF_URL} class="underline hover:text-white">Linux Foundation</a> project.</p>
+      <p class="mt-2 text-xs">{t.footer.foundation} <a href={LF_URL} class="underline hover:text-white">Linux Foundation</a> {t.footer.project}</p>
     </div>
-    <nav aria-label="Footer" class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+    <nav aria-label={t.footerNav} class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
       <a href={LUMA_URL} class="hover:text-white">Luma</a>
       <a href={AAIF_URL} class="hover:text-white">aaif.io</a>
       <a href={CLOUD_NATIVE_RIOJA_URL} class="hover:text-white">Cloud Native Rioja</a>
-      <a href={LF_COC_URL} class="hover:text-white">Code of Conduct</a>
-      <a href={LF_PRIVACY_URL} class="hover:text-white">Privacy Policy</a>
+      <a href={LF_COC_URL} class="hover:text-white">{t.footer.coc}</a>
+      <a href={LF_PRIVACY_URL} class="hover:text-white">{t.footer.privacy}</a>
     </nav>
   </div>
-  <p class="border-t border-white/10 py-4 text-center text-xs">© {new Date().getFullYear()} Agentic Rioja · Hecho en Logroño, La Rioja</p>
+  <p class="border-t border-white/10 py-4 text-center text-xs">© {new Date().getFullYear()} Agentic Rioja · {t.footer.made}</p>
 </footer>

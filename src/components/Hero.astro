@@ -1,6 +1,11 @@
 ---
 import LogronoScene from './LogronoScene.astro';
 import { LUMA_URL } from '../site';
+import { ui } from '../i18n/ui';
+import type { Locale } from '../i18n/locales';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = ui[locale];
 ---
 <section class="overflow-hidden">
   <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:grid-cols-[1.1fr_1fr] md:py-20">
@@ -9,18 +14,18 @@ import { LUMA_URL } from '../site';
         <span class="h-2 w-2 rounded-full bg-wine"></span> Logroño · La Rioja
       </p>
       <h1 class="font-display text-4xl leading-[1.05] font-bold sm:text-5xl lg:text-6xl">
-        Building AI agents in La Rioja, <span class="text-wine italic">together.</span>
+        {t.hero.title} <span class="text-wine italic">{t.hero.accent}</span>
       </h1>
       <p class="mt-6 max-w-xl text-lg text-ink/80">
-        Agentic Rioja is a community of developers, researchers and curious people from Logroño and the rest of La Rioja. We meet up to show what we're building with AI agents, share what actually works, and keep the conversation going afterwards.
+        {t.hero.body}
       </p>
       <div class="mt-8 flex flex-wrap items-center gap-3">
-        <a href={LUMA_URL} class="hero-action rounded-full bg-wine px-6 py-3 font-semibold text-white hover:bg-wine-deep">Join us on Luma</a>
-        <a href="#events" class="hero-action rounded-full border border-ink/25 px-6 py-3 font-semibold hover:bg-white">See upcoming meetups</a>
+        <a href={LUMA_URL} class="hero-action rounded-full bg-wine px-6 py-3 font-semibold text-white hover:bg-wine-deep">{t.joinLuma}</a>
+        <a href="#events" class="hero-action rounded-full border border-ink/25 px-6 py-3 font-semibold hover:bg-white">{t.hero.events}</a>
       </div>
-      <p class="mt-6 font-display text-lg text-ink/70 italic">¡Nos vemos en Logroño!</p>
+      <p class="mt-6 font-display text-lg text-ink/70 italic">{t.hero.signoff}</p>
     </div>
-    <LogronoScene class="w-full rounded-[2rem] shadow-xl shadow-wine/10" />
+    <LogronoScene class="w-full rounded-[2rem] shadow-xl shadow-wine/10" label={t.hero.scene} />
   </div>
 </section>
 

@@ -1,12 +1,14 @@
+import { localize, type Locale, type LocalizedText } from '../i18n/locales';
+
 /** Fields of an event entry that the scheduling logic needs (see src/content.config.ts). */
 export interface EventData {
-  title: string;
+  title: LocalizedText;
   date?: Date;
   endDate?: Date;
   tba: boolean;
   venue?: string;
   lumaUrl?: string;
-  summary: string;
+  summary: LocalizedText;
 }
 
 type Entry = { data: EventData };
@@ -29,14 +31,14 @@ export function splitEvents<T extends Entry>(events: T[], now: number) {
 }
 
 /** schema.org Event markup for dated, upcoming events so search engines can show them. */
-export function eventsJsonLd(upcoming: Entry[], siteUrl: string) {
+export function eventsJsonLd(upcoming: Entry[], siteUrl: string, locale: Locale) {
   return upcoming
     .filter((e) => !e.data.tba && e.data.date)
     .map(({ data }) => ({
       '@context': 'https://schema.org',
       '@type': 'Event',
-      name: data.title,
-      description: data.summary,
+      name: localize(data.title, locale),
+      description: localize(data.summary, locale),
       startDate: data.date!.toISOString(),
       ...(data.endDate && { endDate: data.endDate.toISOString() }),
       eventStatus: 'https://schema.org/EventScheduled',
@@ -47,8 +49,16 @@ export function eventsJsonLd(upcoming: Entry[], siteUrl: string) {
     }));
 }
 
-const dateFormat = new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Europe/Madrid' });
+const dateFormats: Record<Locale, Intl.DateTimeFormat> = {
+  es: new Intl.DateTimeFormat('es-ES', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Europe/Madrid' }),
+  en: new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Europe/Madrid' }),
+};
+
+const tbaLabels: Record<Locale, string> = {
+  es: 'Próximamente · Fecha por confirmar',
+  en: 'Coming soon · Date TBA',
+};
 
 /** Label shown on an event card: Logroño local time, or a TBA notice. */
-export const formatEventDate = (data: Pick<EventData, 'date' | 'tba'>): string =>
-  data.tba || !data.date ? 'Coming soon · Date TBA' : dateFormat.format(data.date);
+export const formatEventDate = (data: Pick<EventData, 'date' | 'tba'>, locale: Locale): string =>
+  data.tba || !data.date ? tbaLabels[locale] : dateFormats[locale].format(data.date);

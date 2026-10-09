@@ -2,16 +2,21 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
+const localizedText = z.object({
+  es: z.string(),
+  en: z.string(),
+});
+
 const events = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
   schema: z.object({
-    title: z.string(),
+    title: localizedText,
     date: z.coerce.date().optional(),
     endDate: z.coerce.date().optional(),
     tba: z.boolean().default(false),
     venue: z.string().optional(),
     lumaUrl: z.url().optional(),
-    summary: z.string(),
+    summary: localizedText,
     speakers: z.array(z.string()).default([]),
   }),
 });
@@ -21,9 +26,9 @@ const organizers = defineCollection({
   schema: ({ image }) => z.object({
     name: z.string(),
     photo: image().optional(),
-    role: z.string().default('Organizer'),
+    role: localizedText.default({ es: 'Organizador', en: 'Organizer' }),
     company: z.string().optional(),
-    bio: z.string().optional(),
+    bio: localizedText.optional(),
     order: z.number().default(0),
     badge: z.enum(['agent', 'colour']).default('agent'),
     linkedin: z.url().optional(),
