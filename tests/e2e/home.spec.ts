@@ -19,6 +19,13 @@ test('renders every section', async ({ page }) => {
   }
 });
 
+test('distills participation into one action and a simple list', async ({ page }) => {
+  const join = page.locator('#join');
+  await expect(join.getByRole('listitem')).toHaveCount(3);
+  await expect(join.locator('article')).toHaveCount(0);
+  await expect(join.getByRole('link', { name: 'Join us on Luma' })).toHaveCount(1);
+});
+
 test('every in-page link points to an existing section', async ({ page }) => {
   const hrefs = await page.locator('a[href^="#"]').evaluateAll((as) => as.map((a) => a.getAttribute('href')!));
   expect(hrefs.length).toBeGreaterThan(0);
