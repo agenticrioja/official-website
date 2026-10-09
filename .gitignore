@@ -12,3 +12,5 @@ playwright-report/
 .impeccable/live/accept-receipts/
 .impeccable/live/roots.json
 .impeccable/live/sessions/
+docs/superpowers/
+.superpowers/
